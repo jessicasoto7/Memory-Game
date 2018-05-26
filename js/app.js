@@ -11,7 +11,9 @@ let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- 
+cards = shuffle(cards);
+console.log (cards);
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
