@@ -14,16 +14,18 @@ let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
 cards = shuffle(cards);
 console.log (cards);
 
-function addNewCard() {
-	const x = document.getElementByClassName('card');
-    let i;
-    for (i = 0; i < x.length; i++) {
-	 x[i].innerHTML =  cards;
-    }
+const list = document.querySelector("i");
+const count = 0;
+const classes = list.classList;
+
+const result = classes.replace(cards, cards[count]);
+console.log(result);
+
+if(result) {
+	li.textContent = classes;
+} else {
+	li.textContent = console.log("ERROR");
 }
-
-
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
