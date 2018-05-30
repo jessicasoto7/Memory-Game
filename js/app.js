@@ -14,18 +14,29 @@ let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
 cards = shuffle(cards);
 console.log (cards);
 
-const list = document.querySelector("i");
-const count = 0;
-const classes = list.classList;
+document.addEventListener("DOMContentLoaded", function(event) {
+  const deck = document.querySelector('.deck');
+  const list = document.createElement('li');
+  const cardIcon = document.createElement('i');
 
-const result = classes.replace(cards, cards[count]);
-console.log(result);
+  function newCard() {
+	deck.appendChild(list); //Add li to .deck
+	list.classList.add('card'); //Add class
+	list.appendChild(cardIcon); //Add i to li
+	cardIcon.classList.add('fa');//Add class
+  }
 
-if(result) {
-	li.textContent = classes;
-} else {
-	li.textContent = console.log("ERROR");
+  function makeCard() {
+    for (let i=0; i<16; i++) {
+        const x = newCard();
+        x.classList.add(cards[i]);
+        console.log(x);
+    }
 }
+
+makeCard();
+
+});
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
