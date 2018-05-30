@@ -1,41 +1,31 @@
 /*
  * Create a list that holds all of your cards x
  */
-let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt",
-"fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb",
-"fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
+let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt",
+"fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb",
+"fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"];
 
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below x
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
+ *   - loop through each card and create its HTML x
+ *   - add each card's HTML to the page x
  */
 cards = shuffle(cards);
 console.log (cards);
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  const deck = document.querySelector('.deck');
-  const list = document.createElement('li');
-  const cardIcon = document.createElement('i');
-
-  function newCard() {
-	deck.appendChild(list); //Add li to .deck
-	list.classList.add('card'); //Add class
-	list.appendChild(cardIcon); //Add i to li
-	cardIcon.classList.add('fa');//Add class
-  }
-
-  function makeCard() {
-    for (let i=0; i<16; i++) {
-        const x = newCard();
-        x.classList.add(cards[i]);
-        console.log(x);
-    }
-}
-
-makeCard();
-
+  
+  
+  for (let i=0; i < cards.length; i++) {
+    const deck = document.querySelector('.deck');
+    const list = document.createElement('li');
+    const cardIcon = document.createElement('i');
+    deck.appendChild(list); //Add li to .deck
+    list.classList.add('card'); //Add class
+    list.appendChild(cardIcon); //Add i to li
+    cardIcon.classList.add('fa', cards[i]);//Add class
+   }
 });
 
 // Shuffle function from http://stackoverflow.com/a/2450976
