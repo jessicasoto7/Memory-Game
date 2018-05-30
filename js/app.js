@@ -4,7 +4,6 @@
 let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt",
 "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb",
 "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"];
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below x
@@ -13,20 +12,16 @@ let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt",
  */
 cards = shuffle(cards);
 console.log (cards);
+const deck = document.querySelector('.deck');
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  
-  
-  for (let i=0; i < cards.length; i++) {
-    const deck = document.querySelector('.deck');
+for (let i=0; i < cards.length; i++) {
     const list = document.createElement('li');
     const cardIcon = document.createElement('i');
     deck.appendChild(list); //Add li to .deck
     list.classList.add('card'); //Add class
     list.appendChild(cardIcon); //Add i to li
     cardIcon.classList.add('fa', cards[i]);//Add class
-   }
-});
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -43,8 +38,16 @@ function shuffle(array) {
     return array;
 }
 
-
-
+const card = document.querySelectorAll('.card');
+const icon = document.getElementsByTagName('i');
+function cardFlip () {
+	for (let i = 0; i < card.length; i++) {
+	    card[i].addEventListener('click', function() {          
+          card[i].classList.add('open', 'show');
+	    }); 
+    } 
+}
+cardFlip();
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
