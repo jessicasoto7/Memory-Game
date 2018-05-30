@@ -40,6 +40,7 @@ function shuffle(array) {
 
 const card = document.querySelectorAll('.card');
 const icon = document.getElementsByTagName('i');
+
 function cardFlip () {
 	for (let i = 0; i < card.length; i++) {
 	    card[i].addEventListener('click', function() {          
