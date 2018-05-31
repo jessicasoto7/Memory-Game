@@ -39,25 +39,42 @@ function shuffle(array) {
 }
 
 const card = document.querySelectorAll('.card');
-const icon = document.getElementsByTagName('i');
-const flippedCard = [];
+let flippedCard = []; //empty array
 
 card.forEach(function(card) {
-	card.addEventListener('click', function(e) {
-	    if (flippedCard.length >= 2) {
+    card.addEventListener('click', function(e) {
+   
+      if(!card.classList.contains('open', 'show', 'match')) { 
+        flippedCard.push(card); //card pushes into array
+        card.classList.add('open', 'show'); //Add classes
 
-	    } else {
-	      flippedCard.push(card);
-	      	card.classList.add('open', 'show');
-	      }                 
-	}); 
+        if (flippedCard.length == 2) { //If there are 2 cards
+          if (flippedCard[0] === flippedCard[1]) { // If card 1 is equal to card 2
+          	  flippedCard[0].classList.add('match'); // Add class to card 1
+          	  flippedCard[1].classList.add('match'); // Add class to card 2
+          	  console.log('Match');
+
+          	  flippedCard = [];// empty the array
+          } else { // If cards dont match 
+                console.log('Not a Match!');
+                setTimeout(function() {
+                    flippedCard.forEach(function(card) {
+                    card.classList.remove('open' , 'show') //remove classes
+                  });
+
+                flippedCard = []; //empty array
+              }, 1000); // No match, cards flip over in 1 sec
+            }
+          }
+       }
+    });
 })
 
 
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)x
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)x
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
