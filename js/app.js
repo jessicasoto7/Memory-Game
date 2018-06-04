@@ -1,20 +1,14 @@
-/*
- * Create a list that holds all of your cards x
- */
+ //Array of cards
 let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt",
 "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb",
 "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"];
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below x
- *   - loop through each card and create its HTML x
- *   - add each card's HTML to the page x
- */
 
+// New Game function. Shuffles and creates all cards and elements.
 function newGame() {
     cards = shuffle(cards);
     console.log (cards);
     const deck = document.querySelector('.deck');
+    const moves = document.querySelector('.moves');
 
     for (let i=0; i < cards.length; i++) {
         const list = document.createElement('li');
@@ -27,7 +21,6 @@ function newGame() {
 
     }
 }
-
 newGame();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -58,15 +51,19 @@ card.forEach(function(card) {
         card.classList.add('open', 'show'); //Add classes
 
         if (flippedCard.length == 2) { //If there are 2 cards
+
           if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
           	  flippedCard[0].classList.add('match'); // Add class to card 1
           	  flippedCard[1].classList.add('match'); // Add class to card 2
           	  console.log('Match');
               matchCards.push(card);
-              if (matchCards.length === 8) {
-		          alert('You Won!');
+
+              if (matchCards.length === 8) { // 8 pairs match, you won game.
+		          alert('You Won!'); //placeholder for modal
 		          console.log('You won!');
+		          resetGame();
 	            }
+
           	  flippedCard = [];// empty the array
           } else { // If cards dont match 
                 console.log('Not a Match!');
@@ -82,6 +79,13 @@ card.forEach(function(card) {
        }
     });
 })
+
+
+//function to reset Game
+function resetGame() {    
+    location.reload();
+    alert('New Game');//placeholder for modal
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
