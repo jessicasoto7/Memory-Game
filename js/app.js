@@ -10,18 +10,25 @@ let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt",
  *   - loop through each card and create its HTML x
  *   - add each card's HTML to the page x
  */
-cards = shuffle(cards);
-console.log (cards);
-const deck = document.querySelector('.deck');
 
-for (let i=0; i < cards.length; i++) {
-    const list = document.createElement('li');
-    const cardIcon = document.createElement('i');
-    deck.appendChild(list); //Add li to .deck
-    list.classList.add('card'); //Add class
-    list.appendChild(cardIcon); //Add i to li
-    cardIcon.classList.add('fa', cards[i]);//Add class
+function newGame() {
+    cards = shuffle(cards);
+    console.log (cards);
+    const deck = document.querySelector('.deck');
+
+    for (let i=0; i < cards.length; i++) {
+        const list = document.createElement('li');
+        const cardIcon = document.createElement('i');
+
+        deck.appendChild(list); //Add li to .deck
+        list.classList.add('card'); //Add class
+        list.appendChild(cardIcon); //Add i to li
+        cardIcon.classList.add('fa', cards[i]);//Add class
+
+    }
 }
+
+newGame();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -40,6 +47,8 @@ function shuffle(array) {
 
 const card = document.querySelectorAll('.card');
 let flippedCard = []; //empty array
+let matchCards = []; //empty match cards array
+
 
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
@@ -50,11 +59,14 @@ card.forEach(function(card) {
 
         if (flippedCard.length == 2) { //If there are 2 cards
           if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
-          	  console.log(flippedCard[0]);
           	  flippedCard[0].classList.add('match'); // Add class to card 1
           	  flippedCard[1].classList.add('match'); // Add class to card 2
           	  console.log('Match');
-
+              matchCards.push(card);
+              if (matchCards.length === 8) {
+		          alert('You Won!');
+		          console.log('You won!');
+	            }
           	  flippedCard = [];// empty the array
           } else { // If cards dont match 
                 console.log('Not a Match!');
@@ -70,7 +82,6 @@ card.forEach(function(card) {
        }
     });
 })
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
