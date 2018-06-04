@@ -49,7 +49,8 @@ card.forEach(function(card) {
         card.classList.add('open', 'show'); //Add classes
 
         if (flippedCard.length == 2) { //If there are 2 cards
-          if (flippedCard[0] === flippedCard[1]) { // If card 1 is equal to card 2
+          if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
+          	  console.log(flippedCard[0]);
           	  flippedCard[0].classList.add('match'); // Add class to card 1
           	  flippedCard[1].classList.add('match'); // Add class to card 2
           	  console.log('Match');
