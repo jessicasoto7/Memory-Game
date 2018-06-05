@@ -18,9 +18,9 @@ function newGame() {
         list.classList.add('card'); //Add class
         list.appendChild(cardIcon); //Add i to li
         cardIcon.classList.add('fa', cards[i]);//Add class
-
     }
 }
+
 newGame();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -38,12 +38,17 @@ function shuffle(array) {
     return array;
 }
 
-const card = document.querySelectorAll('.card');
-let flippedCard = []; //empty array
-let matchCards = []; //empty match cards array
+const restart = document.querySelector('.restart');
+//New Game
+restart.addEventListener('click', function(evt) {
+    location.reload();
+    alert('New Game');//placeholder for modal
+})
+
 //Timer function and adapted from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 const time = setInterval(timer, 1000);
 let totalSeconds = 0;
+let moveCount = 0;
 
 function timer() { // Timer starts.
     ++totalSeconds;
@@ -51,18 +56,29 @@ function timer() { // Timer starts.
     const minute = Math.floor((totalSeconds - hour*3600)/60);
     const seconds = totalSeconds - (hour*3600 + minute*60);
     document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
-}	
+}
+
+const star = document.querySelector(".stars");
+const moves = document.querySelector(".moves");
+
+function moveCounts() { 
+	moveCount += 1;         
+}
+
+const card = document.querySelectorAll('.card');
+let flippedCard = []; //empty array
+let matchCards = []; //empty match cards array
 
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
- 
-      if(!card.classList.contains('open', 'show', 'match')) { 
-        flippedCard.push(card); //card pushes into array
-        card.classList.add('open', 'show'); //Add classes
+        moveCounts();
+        if(!card.classList.contains('open', 'show', 'match')) { 
+          flippedCard.push(card); //card pushes into array
+          card.classList.add('open', 'show'); //Add classes
 
-        if (flippedCard.length == 2) { //If there are 2 cards
+          if (flippedCard.length == 2) { //If there are 2 cards
 
-          if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
+            if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
           	  flippedCard[0].classList.add('match'); // Add class to card 1
           	  flippedCard[1].classList.add('match'); // Add class to card 2
           	  console.log('Match');
@@ -74,29 +90,41 @@ card.forEach(function(card) {
 		          console.log('You won!');
 		          resetGame();
 	            }
-
           	  flippedCard = [];// empty the array
-          } else { // If cards dont match 
+            } else { // If cards dont match 
                 console.log('Not a Match!');
                 setTimeout(function() {
                     flippedCard.forEach(function(card) {
-                    card.classList.remove('open' , 'show') //remove classes
-                  });
-
-                flippedCard = []; //empty array
-              }, 1000); // No match, cards flip over in 1 sec
+                      card.classList.remove('open' , 'show') //remove classes
+                    });
+                    flippedCard = []; //empty array
+                }, 750); // No match, cards flip over in .75 sec
             }
           }
-       }
+
+          if(moveCount == 16) {
+       	    star.removeChild(star.lastChild);
+       	    console.log('You lost a life');
+       	    moves.innerHTML = 2;
+          }
+
+          if(moveCount == 24) {
+       	   star.removeChild(star.lastChild);
+       	   console.log('You lost a life');
+       	   moves.innerHTML = 1;
+          }	
+          if(moveCount == 32) {
+       	   star.removeChild(star.lastChild);
+       	   moves.innerHTML = 0;
+          }
+          if(moveCount >= 33) {
+          	alert('Game Over!');
+          	location.reload();
+          }
+        }    
     });
 })
 
-
-//function to reset Game
-function resetGame() {    
-    location.reload();
-    alert('New Game');//placeholder for modal
-}
 
 /*
  * set up the event listener for a card. If a card is clicked:
