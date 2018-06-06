@@ -69,6 +69,17 @@ const card = document.querySelectorAll('.card');
 let flippedCard = []; //empty array
 let matchCards = []; //empty match cards array
 
+const myModal = document.getElementById('myModal');
+const cancelButton = document.getElementById('cancel');
+
+function winningModal() {
+	myModal.showModal();
+}
+
+cancelButton.addEventListener('click', function() {
+    myModal.close();
+});
+
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
         moveCounts();
@@ -79,18 +90,20 @@ card.forEach(function(card) {
           if (flippedCard.length == 2) { //If there are 2 cards
 
             if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
-          	  flippedCard[0].classList.add('match'); // Add class to card 1
-          	  flippedCard[1].classList.add('match'); // Add class to card 2
-          	  console.log('Match');
-              matchCards.push(card);
+          	    flippedCard[0].classList.add('match'); // Add class to card 1
+          	    flippedCard[1].classList.add('match'); // Add class to card 2
+          	    console.log('Match');
+                matchCards.push(card);
 
-              if (matchCards.length === 8) { // 8 pairs match, you won game.
-		          alert('You Won!'); //placeholder for modal
-		          clearInterval(time);
-		          console.log('You won!');
-		          resetGame();
+                if (matchCards.length === 8) { // 8 pairs match, you won game.
+		            winningModal(); //placeholder for modal
+		            clearInterval(time);
+		            console.log('You won!');
+		            location.reload();
 	            }
-          	  flippedCard = [];// empty the array
+
+          	    flippedCard = [];// empty the array
+
             } else { // If cards dont match 
                 console.log('Not a Match!');
                 setTimeout(function() {
@@ -124,6 +137,8 @@ card.forEach(function(card) {
         }    
     });
 })
+
+
 
 
 /*
