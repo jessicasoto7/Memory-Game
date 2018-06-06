@@ -115,18 +115,18 @@ card.forEach(function(card) {
             }
           }
 
-          if(moveCount == 16) {
+          if(moveCount == 20) {
        	     star.removeChild(star.lastElementChild);
        	     console.log('You lost a life');
        	     moves.innerHTML = 2;
           }
 
-          if(moveCount == 24) {
+          if(moveCount == 35) {
        	     star.removeChild(star.lastElementChild);
        	     console.log('You lost a life');
        	     moves.innerHTML = 1;
           }	
-          if(moveCount == 32) {
+          if(moveCount == 40) {
        	    star.removeChild(star.lastElementChild);
        	    moves.innerHTML = 0;
           }
