@@ -99,7 +99,6 @@ card.forEach(function(card) {
 		            winningModal(); //placeholder for modal
 		            clearInterval(time);
 		            console.log('You won!');
-		            location.reload();
 	            }
 
           	    flippedCard = [];// empty the array
@@ -130,7 +129,7 @@ card.forEach(function(card) {
        	    star.removeChild(star.lastElementChild);
        	    moves.innerHTML = 0;
           }
-          if(moveCount >= 33) {
+          if(moveCount >= 41) {
           	 alert('Game Over!');
           	 location.reload();
           }
