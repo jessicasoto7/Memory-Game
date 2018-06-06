@@ -103,23 +103,23 @@ card.forEach(function(card) {
           }
 
           if(moveCount == 16) {
-       	    star.removeChild(star.lastChild);
-       	    console.log('You lost a life');
-       	    moves.innerHTML = 2;
+       	     star.removeChild(star.lastElementChild);
+       	     console.log('You lost a life');
+       	     moves.innerHTML = 2;
           }
 
           if(moveCount == 24) {
-       	   star.removeChild(star.lastChild);
-       	   console.log('You lost a life');
-       	   moves.innerHTML = 1;
+       	     star.removeChild(star.lastElementChild);
+       	     console.log('You lost a life');
+       	     moves.innerHTML = 1;
           }	
           if(moveCount == 32) {
-       	   star.removeChild(star.lastChild);
-       	   moves.innerHTML = 0;
+       	    star.removeChild(star.lastElementChild);
+       	    moves.innerHTML = 0;
           }
           if(moveCount >= 33) {
-          	alert('Game Over!');
-          	location.reload();
+          	 alert('Game Over!');
+          	 location.reload();
           }
         }    
     });
