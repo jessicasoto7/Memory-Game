@@ -69,11 +69,11 @@ const card = document.querySelectorAll('.card');
 let flippedCard = []; //empty array
 let matchCards = []; //empty match cards array
 
-const myModal = document.getElementById('myModal');
+const winModal = document.getElementById('winningModal');
 const cancelButton = document.getElementById('cancel');
 
 function winningModal() {
-	myModal.showModal();
+	winModal.showModal();
 }
 
 cancelButton.addEventListener('click', function() {
