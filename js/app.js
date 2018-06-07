@@ -71,8 +71,18 @@ function moveCounts() {
 
 //Winning Modal
 const winModal = document.getElementById('winningModal');
+let starScore = document.querySelector('.starsModal');
+let moveScore = document.querySelector('.movesModal');
+let timerScore = document.querySelector('#timerModal');
+let innerStars = document.querySelector('.stars').innerHTML;
+let innerMoves = document.querySelector('.moves').innerHTML;
+let innerTimer = document.querySelector('#timer').innerHTML;
+
 
 function winningModal() {
+	starScore.innerHTML = innerStars;
+    moveScore.innerHTML = innerMoves;
+    timerScore.innerHTML = innerTimer;
 	winModal.showModal();
 	clearInterval(time);
 }
