@@ -76,6 +76,11 @@ function winningModal() {
 	winModal.showModal();
 }
 
+function loseModal() {
+	losingModal.showModal();
+   
+}
+
 cancelButton.addEventListener('click', function() {
     myModal.close();
 });
@@ -130,8 +135,7 @@ card.forEach(function(card) {
        	    moves.innerHTML = 0;
           }
           if(moveCount >= 41) {
-          	 alert('Game Over!');
-          	 location.reload();
+          	 loseModal();
           }
         }    
     });
