@@ -58,7 +58,7 @@ function timer() { // Timer starts.
     const hour = Math.floor(totalSeconds /3600);
     const minute = Math.floor((totalSeconds - hour*3600)/60);
     const seconds = totalSeconds - (hour*3600 + minute*60);
-    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    document.getElementById("timer").innerHTML = hour + " h " + " : " + minute + " min " + " : " + seconds + " s";
 }
 
 //Moves
@@ -74,15 +74,15 @@ const winModal = document.getElementById('winningModal');
 let starScore = document.querySelector('.starsModal');
 let moveScore = document.querySelector('.movesModal');
 let timerScore = document.querySelector('#timerModal');
-let innerStars = document.querySelector('.stars').innerHTML;
-let innerMoves = document.querySelector('.moves').innerHTML;
-let innerTimer = document.querySelector('#timer').innerHTML;
+let innerStars = document.querySelector('.stars');
+let innerMoves = document.querySelector('.moves');
+let innerTimer = document.querySelector('#timer');
 
 
 function winningModal() {
-	starScore.innerHTML = innerStars;
-    moveScore.innerHTML = innerMoves;
-    timerScore.innerHTML = innerTimer;
+	starScore.innerHTML = innerStars.innerHTML;
+    moveScore.innerHTML = innerMoves.innerHTML;
+    timerScore.innerHTML = innerTimer.innerHTML;
 	winModal.showModal();
 	clearInterval(time);
 }
@@ -140,7 +140,7 @@ card.forEach(function(card) {
                       card.classList.remove('open' , 'show')//remove classes
                     });
                     flippedCard = [];//empty array
-                }, 750);// No match, cards flip over in .75 sec
+                }, 500);// No match, cards flip over in .75 sec
             }
           }
 
