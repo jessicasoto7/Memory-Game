@@ -74,6 +74,7 @@ const winModal = document.getElementById('winningModal');
 
 function winningModal() {
 	winModal.showModal();
+	clearInterval(time);
 }
 
 //Game Over Modal
@@ -81,6 +82,7 @@ const losingModal = document.getElementById('losingModal');
 
 function loseModal() {
 	losingModal.showModal();
+	clearInterval(time);
 }
 
 //close modals
@@ -88,6 +90,7 @@ const cancelButton = document.querySelectorAll('.cancel');
 
 for (let i = 0; i < cancelButton.length; i++) {
 	cancelButton[i].addEventListener('click', function() {
+	  winModal.close();
       losingModal.close();
       clearInterval(time);
     });
@@ -115,7 +118,6 @@ card.forEach(function(card) {
 
                 if (matchCards.length === 8) {// 8 pairs match, you won game.
                     winningModal();//placeholder for modal
-                    clearInterval(time);
                     console.log('You won!');
                 }
 
