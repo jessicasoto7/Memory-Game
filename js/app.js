@@ -38,12 +38,16 @@ function shuffle(array) {
     return array;
 }
 
-const restart = document.querySelector('.restart');
+const restart = document.querySelectorAll('.restart');
 //New Game
-restart.addEventListener('click', function(evt) {
-    location.reload();
-    alert('New Game');//placeholder for modal
-})
+
+for (let i = 0; i < restart.length; i++) {
+	restart[i].addEventListener('click', function(evt) {
+      location.reload();
+      console.log('New Game');
+    })
+}
+
 
 //Timer function and adapted from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 const time = setInterval(timer, 1000);
@@ -70,7 +74,6 @@ let flippedCard = []; //empty array
 let matchCards = []; //empty match cards array
 
 const winModal = document.getElementById('winningModal');
-const cancelButton = document.getElementById('cancel');
 
 function winningModal() {
 	winModal.showModal();
@@ -81,9 +84,17 @@ function loseModal() {
    
 }
 
-cancelButton.addEventListener('click', function() {
-    myModal.close();
+const cancelButton = document.querySelectorAll('.cancel');
+
+for (let i = 0; i < cancelButton.length; i++) {
+	cancelButton[i].addEventListener('click', function() {
+    losingModal.close();
+    clearInterval(time);
 });
+}
+
+
+
 
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
