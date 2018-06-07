@@ -38,8 +38,8 @@ function shuffle(array) {
     return array;
 }
 
+//Restart Game
 const restart = document.querySelectorAll('.restart');
-//New Game
 
 for (let i = 0; i < restart.length; i++) {
 	restart[i].addEventListener('click', function(evt) {
@@ -47,7 +47,6 @@ for (let i = 0; i < restart.length; i++) {
       console.log('New Game');
     })
 }
-
 
 //Timer function and adapted from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 const time = setInterval(timer, 1000);
@@ -62,98 +61,100 @@ function timer() { // Timer starts.
     document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
 }
 
+//Moves
 const star = document.querySelector(".stars");
 const moves = document.querySelector(".moves");
 
-function moveCounts() { 
-	moveCount += 1;         
+function moveCounts() {
+	moveCount += 1;
 }
 
-const card = document.querySelectorAll('.card');
-let flippedCard = []; //empty array
-let matchCards = []; //empty match cards array
-
+//Winning Modal
 const winModal = document.getElementById('winningModal');
 
 function winningModal() {
 	winModal.showModal();
 }
 
+//Game Over Modal
+const losingModal = document.getElementById('losingModal');
+
 function loseModal() {
 	losingModal.showModal();
-   
 }
 
+//close modals
 const cancelButton = document.querySelectorAll('.cancel');
 
 for (let i = 0; i < cancelButton.length; i++) {
 	cancelButton[i].addEventListener('click', function() {
-    losingModal.close();
-    clearInterval(time);
-});
+      losingModal.close();
+      clearInterval(time);
+    });
 }
 
-
-
+//Game functions
+const card = document.querySelectorAll('.card');
+let flippedCard = [];//empty array
+let matchCards = [];//empty match cards array
 
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
         moveCounts();
-        if(!card.classList.contains('open', 'show', 'match')) { 
-          flippedCard.push(card); //card pushes into array
-          card.classList.add('open', 'show'); //Add classes
+        if(!card.classList.contains('open', 'show', 'match')) {
+          flippedCard.push(card);//card pushes into array
+          card.classList.add('open', 'show');//Add classes
 
-          if (flippedCard.length == 2) { //If there are 2 cards
+          if (flippedCard.length == 2) {//If there are 2 cards
 
-            if (flippedCard[0].isEqualNode(flippedCard[1])) { // If card 1 is equal to card 2
-          	    flippedCard[0].classList.add('match'); // Add class to card 1
-          	    flippedCard[1].classList.add('match'); // Add class to card 2
-          	    console.log('Match');
+            if (flippedCard[0].isEqualNode(flippedCard[1])) {// If card 1 is equal to card 2
+                flippedCard[0].classList.add('match');// Add class to card 1
+                flippedCard[1].classList.add('match');// Add class to card 2
+                console.log('Match');
                 matchCards.push(card);
 
-                if (matchCards.length === 8) { // 8 pairs match, you won game.
-		            winningModal(); //placeholder for modal
-		            clearInterval(time);
-		            console.log('You won!');
-	            }
+                if (matchCards.length === 8) {// 8 pairs match, you won game.
+                    winningModal();//placeholder for modal
+                    clearInterval(time);
+                    console.log('You won!');
+                }
 
-          	    flippedCard = [];// empty the array
+                flippedCard = [];// empty the array
 
-            } else { // If cards dont match 
+            } else {// If cards dont match 
                 console.log('Not a Match!');
                 setTimeout(function() {
                     flippedCard.forEach(function(card) {
-                      card.classList.remove('open' , 'show') //remove classes
+                      card.classList.remove('open' , 'show')//remove classes
                     });
-                    flippedCard = []; //empty array
-                }, 750); // No match, cards flip over in .75 sec
+                    flippedCard = [];//empty array
+                }, 750);// No match, cards flip over in .75 sec
             }
           }
 
           if(moveCount == 20) {
-       	     star.removeChild(star.lastElementChild);
-       	     console.log('You lost a life');
-       	     moves.innerHTML = 2;
+              star.removeChild(star.lastElementChild);
+              console.log('You lost a life');
+              moves.innerHTML = 2;
           }
 
           if(moveCount == 35) {
-       	     star.removeChild(star.lastElementChild);
-       	     console.log('You lost a life');
-       	     moves.innerHTML = 1;
-          }	
+              star.removeChild(star.lastElementChild);
+              console.log('You lost a life');
+              moves.innerHTML = 1;
+          }
+
           if(moveCount == 40) {
-       	    star.removeChild(star.lastElementChild);
-       	    moves.innerHTML = 0;
+              star.removeChild(star.lastElementChild);
+              moves.innerHTML = 0;
           }
+
           if(moveCount >= 41) {
-          	 loseModal();
+              loseModal();
           }
-        }    
+        }
     });
 })
-
-
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
