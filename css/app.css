@@ -131,3 +131,8 @@ h1 {
     float: right;
     margin-bottom: 10px;
 }
+
+.starsModal li {
+	list-style: none;
+    display: inline-block;
+}
