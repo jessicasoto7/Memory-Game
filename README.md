@@ -12,9 +12,9 @@ Build your brains memory with this memory game!
 
 You will start with 3 lives. Turn cards 20 times, you lose a life and so on.
 
-20 turns = 2 lives left
-35 turns = 1 life left
-40 turns = 0 lives left
+20 turns = 2 lives left.
+35 turns = 1 life left.
+40 turns = 0 lives left.
 45 turns = Game Over!
 
 ## Download
