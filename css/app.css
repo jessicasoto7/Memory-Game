@@ -38,7 +38,7 @@ h1 {
  */
 
 .deck {
-    width: 660px;
+    max-width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
@@ -135,4 +135,14 @@ h1 {
 .starsModal li {
 	list-style: none;
     display: inline-block;
+}
+
+
+@media (max-width: 425px) {
+    .card {
+      height: 100px;
+      width: 40%;
+      margin-left: 2px;
+      margin-bottom: 2px;
+	}    
 }
