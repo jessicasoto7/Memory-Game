@@ -4,17 +4,28 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
+*[License](#License)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Build your brains memory with this memory game! 
 
-To get started, open `js/app.js` and start building out the app's functionality
+You will start with 3 lives. Turn cards 20 times, you lose a life and so on.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+20 turns = 2 lives left
+35 turns = 1 life left
+40 turns = 0 lives left
+45 turns = Game Over!
+
+## Download
+
+Feel free to fork it on your GitHub or clone it on Git Bash. 
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests. 
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+##License
+
+This code is free to use and edit.
+

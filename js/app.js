@@ -161,7 +161,7 @@ card.forEach(function(card) {
               moves.innerHTML = 0;
           }
 
-          if(moveCount >= 41) {
+          if(moveCount >= 45) {
               loseModal();
           }
         }
