@@ -25,7 +25,7 @@ Feel free to fork it on your GitHub or clone it on Git Bash.
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests. 
 
-##License
+## License
 
 This code is free to use and edit.
 
