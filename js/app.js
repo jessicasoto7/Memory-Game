@@ -106,7 +106,7 @@ for (let i = 0; i < cancelButton.length; i++) {
     });
 }
 
-//Game functions
+//Game functions, build off of Mike Wales webinar https://www.youtube.com/watch?v=_rUH-sEs68Y
 const card = document.querySelectorAll('.card');
 let flippedCard = [];//empty array
 let matchCards = [];//empty match cards array
