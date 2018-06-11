@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
-*[License](#license)
+* [License](#license)
 
 
 ## Instructions
