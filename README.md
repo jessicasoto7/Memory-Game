@@ -5,7 +5,7 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 * [License](#license)
-* [Acknowledgements](#acknowledgements)
+* [Resources](#resources)
 
 
 ## Instructions
@@ -33,7 +33,7 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 This code is free to use and edit.
 
-## Acknowledgements
+## Resources
 
 Mike Wales [webinar](https://www.youtube.com/watch?v=_rUH-sEs68Y).
 
