@@ -4,18 +4,21 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
-*[License](#License)
+*[License](#license)
+
 
 ## Instructions
 
-Build your brains memory with this memory game! 
+Build your brains memory with this memory game! Flip each card to find its match. When you have 8 pairs, you win the game.
 
-You will start with 3 lives. Turn cards 20 times, you lose a life and so on.
+You will start with 3 lives.
 
-20 turns = 2 lives left.
-35 turns = 1 life left.
-40 turns = 0 lives left.
-45 turns = Game Over!
+**15 turns** = 2 lives left.
+
+**23 turns** = 1 life left.
+
+**26 turns** = Game Over!
+
 
 ## Download
 
@@ -29,3 +32,10 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 This code is free to use and edit.
 
+## Acknowledgements
+
+Mike Wales [webinar] (https://www.youtube.com/watch?v=_rUH-sEs68Y).
+
+Timer function and adapted from [stack**overflow**] (https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa).
+
+Udacity student discussion forums
