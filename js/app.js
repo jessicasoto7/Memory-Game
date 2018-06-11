@@ -51,7 +51,8 @@ for (let i = 0; i < restart.length; i++) {
 //Timer function and adapted from https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 const time = setInterval(timer, 1000);
 let totalSeconds = 0;
-let moveCount = 0;
+let moveCount = 1;
+moveCount.innerHTML = 0;
 
 function timer() { // Timer starts.
     ++totalSeconds;
@@ -65,9 +66,8 @@ function timer() { // Timer starts.
 const star = document.querySelector(".stars");
 const moves = document.querySelector(".moves");
 
-function moveCounts() {
-	moveCount += 1;
-}
+
+
 
 //Winning Modal
 const winModal = document.getElementById('winningModal');
@@ -113,13 +113,25 @@ let matchCards = [];//empty match cards array
 
 card.forEach(function(card) {
     card.addEventListener('click', function(e) {
-        moveCounts();
         if(!card.classList.contains('open', 'show', 'match')) {
           flippedCard.push(card);//card pushes into array
           card.classList.add('open', 'show');//Add classes
 
           if (flippedCard.length == 2) {//If there are 2 cards
+            moves.innerHTML = moveCount++;
+             if(moveCount == 16) {
+              star.removeChild(star.lastElementChild);
+              console.log('You lost a life');
+            }
 
+            if(moveCount == 24) {
+              star.removeChild(star.lastElementChild);
+              console.log('You lost a life');
+            }
+
+            if(moveCount == 26) {
+          	  loseModal();
+            }  
             if (flippedCard[0].isEqualNode(flippedCard[1])) {// If card 1 is equal to card 2
                 flippedCard[0].classList.add('match');// Add class to card 1
                 flippedCard[1].classList.add('match');// Add class to card 2
@@ -142,28 +154,7 @@ card.forEach(function(card) {
                     flippedCard = [];//empty array
                 }, 500);// No match, cards flip over in .75 sec
             }
-          }
-
-          if(moveCount == 30) {
-              star.removeChild(star.lastElementChild);
-              console.log('You lost a life');
-              moves.innerHTML = 2;
-          }
-
-          if(moveCount == 45) {
-              star.removeChild(star.lastElementChild);
-              console.log('You lost a life');
-              moves.innerHTML = 1;
-          }
-
-          if(moveCount == 50) {
-              star.removeChild(star.lastElementChild);
-              moves.innerHTML = 0;
-          }
-
-          if(moveCount >= 55) {
-              loseModal();
-          }
+          }  
         }
     });
 })
