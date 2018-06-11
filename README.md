@@ -5,7 +5,7 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 * [License](#license)
-* [Acknowledgements] (#acknowledgements)
+* [Acknowledgements](#acknowledgements)
 
 
 ## Instructions
