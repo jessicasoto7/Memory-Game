@@ -144,24 +144,24 @@ card.forEach(function(card) {
             }
           }
 
-          if(moveCount == 20) {
+          if(moveCount == 30) {
               star.removeChild(star.lastElementChild);
               console.log('You lost a life');
               moves.innerHTML = 2;
           }
 
-          if(moveCount == 35) {
+          if(moveCount == 45) {
               star.removeChild(star.lastElementChild);
               console.log('You lost a life');
               moves.innerHTML = 1;
           }
 
-          if(moveCount == 40) {
+          if(moveCount == 50) {
               star.removeChild(star.lastElementChild);
               moves.innerHTML = 0;
           }
 
-          if(moveCount >= 45) {
+          if(moveCount >= 55) {
               loseModal();
           }
         }
