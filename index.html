@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -9,13 +10,14 @@
     <!-- Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    
+
     <!--Google Fonts-->
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
 
     <!--Custom Style-->
     <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -24,19 +26,19 @@
         </header>
 
         <section class="score-panel col-sm-6">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
 
-        	<span class="moves">0</span> Moves
+            <span class="moves">0</span> Moves
 
-        	<span id="timer">00</span>
+            <span id="timer">00</span>
 
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
+                <i class="fa fa-repeat"></i>
+            </div>
         </section>
 
         <ul class="deck">
@@ -46,7 +48,7 @@
 
     <!-- Simple pop-up dialog box, containing a form -->
     <dialog id="winningModal">
-        <nav class = "closeModal">
+        <nav class="closeModal">
             <button class="cancel" type="reset"><i class="fas fa-times"></i></button>
         </nav>
         <section class="score">
@@ -60,7 +62,7 @@
 
             <span class="movesModal">3</span> Moves Left
 
-        	<p> It took you <span id="timerModal">00</span> </p>
+            <p> It took you <span id="timerModal">00</span> </p>
 
             <div class="restart">
                 <i class="fa fa-repeat"></i> <span>Restart Game</span>
@@ -70,7 +72,7 @@
 
     <!-- Simple pop-up dialog box, containing a form -->
     <dialog id="losingModal">
-        <nav class = "closeModal">
+        <nav class="closeModal">
             <button class="cancel" type="reset"><i class="fas fa-times"></i></button>
         </nav>
         <section class="score">
@@ -97,4 +99,5 @@
     <!--Bootstrap JS-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
+
 </html>
