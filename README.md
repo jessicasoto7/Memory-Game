@@ -35,8 +35,8 @@ This code is free to use and edit.
 
 ## Acknowledgements
 
-Mike Wales [webinar] (https://www.youtube.com/watch?v=_rUH-sEs68Y).
+Mike Wales [webinar](https://www.youtube.com/watch?v=_rUH-sEs68Y).
 
-Timer function and adapted from [stack**overflow**] (https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa).
+Timer function and adapted from [stack**overflow**](https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa).
 
 Udacity student discussion forums
